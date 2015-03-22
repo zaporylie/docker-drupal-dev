@@ -21,5 +21,3 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev
  && mkdir -p /app/output
 
 EXPOSE 80 22 9000
-
-CMD ["/bin/bash", "/root/start.sh"]
