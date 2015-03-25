@@ -3,7 +3,7 @@ MAINTAINER Jakub Piasecki <jakub@piaseccy.pl>
 
 # Development tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev php5-xdebug libpcre3-dev libssh2-php \
- && sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/apache2/php.ini \
+ && sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/fpm/php.ini \
  && sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/cli/php.ini \
  && mkdir -p /app/output \
  && chown www-data:www-data /app/output \
