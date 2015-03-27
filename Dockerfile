@@ -20,4 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev
  && echo 'alias drupalcs="phpcs --standard=$HOME/.composer/vendor/drupal/coder/coder_sniffer/Drupal --extensions=\"php,module,inc,install,test,profile,theme,js,css,info,txt\""' >> /root/.bashrc \
  && mkdir -p /app/output
 
+ENV DRUPAL_TEST_CS 0
+ENV DRUPAL_TEST_CS_PATH "/app/drupal"
+
 EXPOSE 80 22 9000
