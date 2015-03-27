@@ -7,6 +7,13 @@ This image is build on [zaporylie/drupal](http://registry.hub.docker.com/u/zapor
 
 You can find documentation on [GitHub](https://github.com/zaporylie/docker-drupal)
 
+## Additional configuration
+
+| ENNVIRONMENTAL VARIABLE  |  DEFAULT VALUE |
+|:-:|:-:|
+| DRUPAL_TEST_CS (not implemented) | 0 |
+| DRUPAL_TEST_CS_PATH (not implemented) | /app/drupal |
+
 ## How to use CodeSniffer?
 
 The easiest way is to enter container (with `docker exec -ti <container_id_or_name> /bin/bash`), and:
