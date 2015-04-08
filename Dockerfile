@@ -18,6 +18,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev
  && echo 'xdebug.max_nesting_level = 1000' >> /etc/php5/mods-available/xdebug.ini \
  && composer global require drupal/coder \
  && echo 'alias drupalcs="phpcs --standard=$HOME/.composer/vendor/drupal/coder/coder_sniffer/Drupal --extensions=\"php,module,inc,install,test,profile,theme,js,css,info,txt\""' >> /root/.bashrc \
+ && echo 'alias drupalcs-bp="phpcs --standard=$HOME/.composer/vendor/drupal/coder/coder_sniffer/DrupalPractice --extensions=\"php,module,inc,install,test,profile,theme,js,css,info,txt\""' >> /root/.bashrc \
+ && echo 'alias drupalcs-fix="phpcbf --standard=$HOME/.composer/vendor/drupal/coder/coder_sniffer/Drupal --extensions=\"php,module,inc,install,test,profile,theme,js,css,info,txt\""' >> /root/.bashrc \
  && mkdir -p /app/output
 
 ENV DRUPAL_TEST_CS 0
