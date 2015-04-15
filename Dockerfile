@@ -22,6 +22,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev
  && echo 'alias drupalcs-fix="phpcbf --standard=$HOME/.composer/vendor/drupal/coder/coder_sniffer/Drupal --extensions=\"php,module,inc,install,test,profile,theme,js,css,info,txt\""' >> /root/.bashrc \
  && mkdir -p /app/output
 
+RUN wget -O - https://packagecloud.io/gpg.key | sudo apt-key add - \
+ && echo "deb http://packages.blackfire.io/debian any main" | sudo tee /etc/apt/sources.list.d/blackfire.list \
+ && sudo apt-get update \
+ && sudo apt-get install blackfire-php \
+ && echo "extension=blackfire.so\nblackfire.agent_socket=\${BLACKFIRE_PORT}" > /etc/php5/mods-available/blackfire.ini
+
 ENV DRUPAL_TEST_CS 0
 ENV DRUPAL_TEST_CS_PATH "/app/drupal"
 
