@@ -30,7 +30,10 @@ RUN wget -O - https://packagecloud.io/gpg.key | sudo apt-key add - \
  && sudo apt-get install blackfire-php \
  && echo "extension=blackfire.so\nblackfire.agent_socket=\${BLACKFIRE_PORT}" > /etc/php5/mods-available/blackfire.ini
 
+COPY ./conf /root/conf/
+
 ENV DRUPAL_TEST_CS 0
 ENV DRUPAL_TEST_CS_PATH "/app/drupal"
+ENV DEV_MODULE XDEBUG
 
 EXPOSE 80 22 9000
