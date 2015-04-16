@@ -13,6 +13,16 @@ You can find documentation on [GitHub](https://github.com/zaporylie/docker-drupa
 |:-:|:-:|
 | DRUPAL_TEST_CS (not implemented) | 0 |
 | DRUPAL_TEST_CS_PATH (not implemented) | /app/drupal |
+| DEV_MODULE | XDEBUG |
+
+## Profiling with blackfire or using xdebug
+
+You will get xdebug by default, but if you prefer to use Blackfire for profiling instead use DEV_MODULE env variable with value BLACKFIRE instead.
+But remember to run [blackfire/blackfire](https://registry.hub.docker.com/u/blackfire/blackfire/) container before and link it to this container like that:
+
+````
+docker run -dP --link blackfire:blackfire -e BLACKFIRE_SERVER_ID=put-blackfire-server-id-here -e BLACKFIRE_SERVER_TOKEN=put-blackfire-server-token-here -e DEV_MODULE=BLACKFIRE zaporylie/drupal-dev
+````
 
 ## How to use CodeSniffer?
 
@@ -22,8 +32,7 @@ The easiest way is to enter container (with `docker exec -ti <container_id_or_na
 drupalcs /path/to/file/or/module/or/whatever
 ````
 
-ex.
-
-````
-drupalcs /app/drupal/sites/all/modules/contrib/your_module
-````
+Available methods:
+* drupalcs - standard checking against drupal coding standards
+* drupalcs-bp - checking against drupal best practices
+* drupalcs-fix - automated way of fixing coding standards issues
