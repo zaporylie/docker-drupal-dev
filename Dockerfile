@@ -5,6 +5,8 @@ MAINTAINER Jakub Piasecki <jakub@piaseccy.pl>
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install php5-dev php5-xdebug libpcre3-dev libssh2-php \
  && sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/fpm/php.ini \
  && sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/cli/php.ini \
+ && sed -ri 's/^memory_limit\s*=\s*.*/memory_limit = 192MB/g' /etc/php5/fpm/php.ini \
+ && sed -ri 's/^max_execution_time\s*=\s*.*/max_execution_time = 300/g' /etc/php5/fpm/php.ini \
  && mkdir -p /app/output \
  && chown www-data:www-data /app/output \
  && echo 'xdebug.remote_enable = 1' >> /etc/php5/mods-available/xdebug.ini \
