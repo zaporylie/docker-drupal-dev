@@ -4,7 +4,13 @@ services:
   - docker
 
 script:
+  # Show version of Docker used to build image and run container.
   - docker version
+  # Build image (use the same namespace as on docker hub)
   - docker build -t zaporylie/drupal-dev .
+  # Show all docker images.
+  - docker images
+  # Show all container.
   - docker ps -a
-  - docker run --name drupal-dev -ti zaporylie/drupal-dev /root/conf/test.sh
+  # Run container in test mode.
+  - docker run --name drupal-dev -i -e BUILD_TEST=1 zaporylie/drupal-dev
