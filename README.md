@@ -1,12 +1,13 @@
 Drupal Docker Image for developers
 ===============================
 
-This image is build on [zaporylie/drupal](http://registry.hub.docker.com/u/zaporylie/drupal/) but adds some useful tools for developers, like CodeSniffer or xDebug.
+[![Build Status](https://travis-ci.org/zaporylie/docker-drupal-dev.svg?branch=master)](https://travis-ci.org/zaporylie/docker-drupal-dev)
+
+This image was built on the top of [zaporylie/drupal](http://registry.hub.docker.com/u/zaporylie/drupal/) image,  but adds some useful tools for developers, like CodeSniffer, xDebug or Blackfire.
 
 ## Documentation
 
-If you are looking for documentation, go to [zaporylie/docker-drupal](https://github.com/zaporylie/docker-drupal)
-Addtional info, dev specific, you can find here.
+If you are looking for general documentation, please check [zaporylie/docker-drupal](https://github.com/zaporylie/docker-drupal)
 
 ## Additional configuration
 
@@ -18,8 +19,8 @@ Addtional info, dev specific, you can find here.
 
 ## Profiling with blackfire or using xdebug
 
-You will get xdebug by default, but if you prefer to use Blackfire for profiling instead use DEV_MODULE env variable with value BLACKFIRE instead.
-But remember to run [blackfire/blackfire](https://registry.hub.docker.com/u/blackfire/blackfire/) container before and link it to this container like that:
+You will get xdebug by default, but if you prefer to use Blackfire for profiling instead, please use DEV_MODULE environmental variable with "BLACKFIRE" value.
+Just remember to run [blackfire/blackfire](https://registry.hub.docker.com/u/blackfire/blackfire/) container before and link it to your zaporylie/drupal-dev container like in the example below:
 
 ````
 docker run -dP --link blackfire:blackfire -e BLACKFIRE_SERVER_ID=put-blackfire-server-id-here -e BLACKFIRE_SERVER_TOKEN=put-blackfire-server-token-here -e DEV_MODULE=BLACKFIRE zaporylie/drupal-dev
