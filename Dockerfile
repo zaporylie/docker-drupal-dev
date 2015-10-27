@@ -1,4 +1,4 @@
-FROM zaporylie/drupal
+FROM zaporylie/drupal:1
 MAINTAINER Jakub Piasecki <jakub@piaseccy.pl>
 
 # Development tools
