@@ -33,8 +33,8 @@ RUN sed -ri 's/^display_errors\s*=\s*Off/display_errors = On/g' /etc/php5/fpm/ph
  && echo 'xdebug.trace_output_dir = "/app/output"' >> /etc/php5/mods-available/xdebug.ini \
  && echo 'xdebug.max_nesting_level = 1000' >> /etc/php5/mods-available/xdebug.ini \
 
-ENV TEST_CS 0
-ENV TEST_CS_PATH "/app/drupal"
-ENV DEV_MODULE XDEBUG
+ENV TEST_CS="" \
+ && TEST_CS_PATH="/app/drupal"
+ENV DEV_MODULE="XDEBUG"
 
 EXPOSE 80 22 9000
