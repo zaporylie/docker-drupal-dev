@@ -1,5 +1,7 @@
-Drupal Docker Image for developers
+[Deprecated] Drupal Docker Image for developers
 ===============================
+
+**Thanks for your interest but this project is now deprecated. Visit http://github.com/drupal-docker if you're looking for Drupal-Docker integration. Following organization is a direct successor of all repos which are related to Drupal&Docker and created by me. Thanks and good luck!**
 
 [![Build Status](https://travis-ci.org/zaporylie/docker-drupal-dev.svg?branch=master)](https://travis-ci.org/zaporylie/docker-drupal-dev)
 
